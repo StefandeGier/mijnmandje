@@ -26,7 +26,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <h1>Mijnwebshop</h1>
+                    <h1>Mijnmandje</h1>
                 </div>
 
 
