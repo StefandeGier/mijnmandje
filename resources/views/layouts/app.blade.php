@@ -24,9 +24,24 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
+
+
+
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Mijnmandje
                 </a>
+                <div class="dropdown">
+                  <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Catergories
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="{{ url('/') }}">alles</a>
+                    @foreach (Navigation::getAllCategories() as $categorie)
+                      <a class="dropdown-item" href="{{ url('/') }}">{{$categorie->name}}</a>
+                    @endforeach
+
+                  </div>
+                </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

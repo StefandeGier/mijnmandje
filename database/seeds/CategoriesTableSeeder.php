@@ -13,23 +13,23 @@ class CategoriesTableSeeder extends Seeder
     {
         //
         DB::table('categories')->insert([
+          [
             'name' => 'kinderen'
-        ]);
-
-        DB::table('categories')->insert([
+          ],
+          [
             'name' => 'technologie'
-        ]);
-
-        DB::table('categories')->insert([
+          ],
+          [
             'name' => 'boeken'
-        ]);
-
-        DB::table('categories')->insert([
+          ],
+          [
             'name' => 'kantoor'
+          ],
+          [
+            'name' => 'hobby'
+          ]
         ]);
 
-        DB::table('categories')->insert([
-            'name' => 'hobby'
-        ]);
+
     }
 }
