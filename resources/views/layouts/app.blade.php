@@ -37,7 +37,7 @@
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" href="{{ url('/') }}">alles</a>
                     @foreach (Navigation::getAllCategories() as $categorie)
-                      <a class="dropdown-item" href="{{ url('/') }}">{{$categorie->name}}</a>
+                      <a class="dropdown-item" href="categorie/{{$categorie->id}}">{{$categorie->name}}</a>
                     @endforeach
 
                   </div>

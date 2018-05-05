@@ -9,6 +9,7 @@
                 <div class="card-body">
                   Dit zijn de producten
                 </div>
+                
             </div>
         </div>
     </div>

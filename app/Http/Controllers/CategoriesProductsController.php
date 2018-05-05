@@ -44,9 +44,23 @@ class CategoriesProductsController extends Controller
      * @param  \App\Categories_products  $categories_products
      * @return \Illuminate\Http\Response
      */
-    public function show(Categories_products $categories_products)
+    public function show($id)
     {
-        //
+      //  $products = Product::where('group_id', $id)->get();
+      //  $tasks = Tasks::where('group_id', $id)->get();
+      //  return view('group/show')->withGroup($group,$tasks);
+      //  return view('group/show',compact('tasks','group'));
+
+      /*
+      prototype <- ?
+      // hier ff nadenken over joins <<<<
+      
+      $users = DB::table('catergories_products')
+            ->join('products', 'catergories_products.product_id', '=', 'contacts.user_id')
+            ->join('catergories', 'users.id', '=', 'orders.user_id')
+            ->select('users.*', 'contacts.phone', 'orders.price')
+            ->get();
+    */
     }
 
     /**
