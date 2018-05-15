@@ -54,11 +54,10 @@ class CategoriesProductsController extends Controller
       /*
       prototype <- ?
       // hier ff nadenken over joins <<<<
-      
-      $users = DB::table('catergories_products')
-            ->join('products', 'catergories_products.product_id', '=', 'contacts.user_id')
-            ->join('catergories', 'users.id', '=', 'orders.user_id')
-            ->select('users.*', 'contacts.phone', 'orders.price')
+
+      $products  = DB::table('catergories_products')
+            ->where('id', 'John')->first();
+            ->join('products', 'catergories_products.product_id', '=', 'id')
             ->get();
     */
     }
