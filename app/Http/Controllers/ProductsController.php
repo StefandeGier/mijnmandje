@@ -16,24 +16,9 @@ class ProductsController extends Controller
      */
     public function indexByCategory($category_id)
     {
-        echo "Test";
-        echo $category_id;
-
         $category = Category::find($category_id);
 
-
-
-        //var_dump($categorie->id);
-
-        //echo $categorie;
-        $products = $category->products();
-        dd($products);
-        foreach ($products as $product) {
-          echo $product->name;
-        }
-        //var_dump($products);
-
-
+        return view('products',  ['products' => $category->products]);
     }
 
     /**

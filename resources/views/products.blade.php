@@ -8,8 +8,12 @@
 
                 <div class="card-body">
                   Dit zijn de producten
+
+                  @foreach ($products as $product)
+                    {{$product->name}}
+                  @endforeach
                 </div>
-                
+
             </div>
         </div>
     </div>

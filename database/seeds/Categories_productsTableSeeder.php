@@ -14,19 +14,19 @@ class Categories_productsTableSeeder extends Seeder
         //
         DB::table('categories_products')->insert([
             [
-            'catergory_id' => 1 , 'product_id' => 1
+            'category_id' => 1 , 'product_id' => 1
             ],
             [
-            'catergory_id' => 5 , 'product_id' => 2
+            'category_id' => 5 , 'product_id' => 2
             ],
             [
-            'catergory_id' => 4 , 'product_id' => 3
+            'category_id' => 4 , 'product_id' => 3
             ],
             [
-            'catergory_id' => 2 , 'product_id' => 4
+            'category_id' => 2 , 'product_id' => 4
             ],
             [
-            'catergory_id' => 3 , 'product_id' => 5
+            'category_id' => 3 , 'product_id' => 5
             ]
         ]);
     }

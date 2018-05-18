@@ -32,12 +32,11 @@
                 </a>
                 <div class="dropdown">
                   <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Catergories
+                    Categories
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="{{ url('/') }}">alles</a>
                     @foreach (Navigation::getAllCategories() as $categorie)
-                      <a class="dropdown-item" href="categorie/{{$categorie->id}}">{{$categorie->name}}</a>
+                      <a class="dropdown-item" href="product/indexbycategory/{{$categorie->id}}">{{$categorie->name}}</a>
                     @endforeach
 
                   </div>
