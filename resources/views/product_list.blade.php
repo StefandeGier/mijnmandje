@@ -10,7 +10,7 @@
                   Dit zijn de producten
 
                   @foreach ($products as $product)
-                    {{$product->name}}
+                    <a href="/product/{{$product->id}}">{{$product->name}}</a>
                   @endforeach
                 </div>
 

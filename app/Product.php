@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function getProduct()
+    public function getProduct($product_id)
     {
 
     }

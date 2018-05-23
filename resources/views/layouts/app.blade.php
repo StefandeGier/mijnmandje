@@ -36,7 +36,7 @@
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     @foreach (Navigation::getAllCategories() as $categorie)
-                      <a class="dropdown-item" href="product/indexbycategory/{{$categorie->id}}">{{$categorie->name}}</a>
+                      <a class="dropdown-item" href="/product/indexbycategory/{{$categorie->id}}">{{$categorie->name}}</a>
                     @endforeach
 
                   </div>

@@ -18,7 +18,7 @@ class ProductsController extends Controller
     {
         $category = Category::find($category_id);
 
-        return view('products',  ['products' => $category->products]);
+        return view('product_list',  ['products' => $category->products]);
     }
 
     /**
@@ -26,9 +26,19 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function view($product_id)
     {
-        //
+        $product = Product::findOrFail($product_id);
+
+        //echo $product->name;
+
+        return view('product',compact('product'));
+
+    }
+
+    public function addShoppingCart($product_id)
+    {
+        
     }
 
     /**

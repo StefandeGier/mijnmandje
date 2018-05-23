@@ -23,5 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/product/indexbycategory/{category_id}', 'ProductsController@indexByCategory');
 
+Route::get('/product/{product_id}', 'ProductsController@view');
+
+Route::post('/product/add/{product_id}', 'CartController@addShoppingCart');
+
 
 //Route::get('/', 'CategoriesController@index')->name('welcome');
