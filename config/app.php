@@ -209,6 +209,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Navigation' => App\Facades\Navigation::class, // nav facade<<
+        'Shoppingcart' => App\Facades\Shoppingcart::class, // Shoppingcart facade<<
 
     ],
 

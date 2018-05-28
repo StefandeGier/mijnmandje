@@ -5,7 +5,8 @@
             <div class="content">
                 <div class="title m-b-md">
                     <h1>Mijnmandje</h1>
-                    
+
+            
                 </div>
             </div>
         </div>

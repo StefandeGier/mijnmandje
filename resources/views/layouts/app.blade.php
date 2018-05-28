@@ -14,7 +14,9 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
@@ -55,6 +57,12 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i> addShoppingCart
+                                <span class="badge">{{Shoppingcart::getCartTotal() }}</span>
+                              </a>
+                            </li>  
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else

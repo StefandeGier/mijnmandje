@@ -38,7 +38,7 @@ class ProductsController extends Controller
 
     public function addShoppingCart($product_id)
     {
-        
+
     }
 
     /**
