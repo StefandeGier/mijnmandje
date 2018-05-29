@@ -58,11 +58,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li>
-                              <a href="#">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i> addShoppingCart
+                              <a href="/cart">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shoppingcart
                                 <span class="badge">{{Shoppingcart::getCartTotal() }}</span>
                               </a>
-                            </li>  
+                            </li>
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else

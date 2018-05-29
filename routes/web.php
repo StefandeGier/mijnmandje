@@ -27,5 +27,8 @@ Route::get('/product/{product_id}', 'ProductsController@view');
 
 Route::post('/product/add', 'CartController@addShoppingCart');
 
+Route::get('/cart', 'CartController@viewCart');
+
+
 
 //Route::get('/', 'CategoriesController@index')->name('welcome');

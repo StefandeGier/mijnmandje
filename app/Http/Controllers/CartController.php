@@ -28,7 +28,31 @@ class CartController extends Controller
 
       return view('/welcome');
 
+    }
 
+    public function viewCart(Request $request)
+    {
+      $cartProducts = array();
+
+      if($request->session()->has('cart')) {
+        $shopCart = Session::get('cart');
+
+        foreach ($shopCart as $item) {
+          array_push($cartProducts, Product::find(key($item)));
+          
+        }
+
+        //var_dump($shopCart);
+        //var_dump($cartProducts);
+        //var_dump($product_id['product_id']);
+
+        //echo $qty;
+        //return view('tasks/edit',compact('task'));
+        return view('/cart')->with('cartProducts', $cartProducts);
+      }
+
+    //  return view('/cart');
 
     }
+
 }

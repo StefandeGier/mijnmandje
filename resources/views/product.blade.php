@@ -16,6 +16,8 @@
                     <input type="text" hidden name="product_id" value="{{$product->id}}">
                     <input type="text" name="qty" value="1">
                     <button type="submit" class="btn btn-light">Toevoegen</button>
+
+                    
                   </form>
 
             </div>
