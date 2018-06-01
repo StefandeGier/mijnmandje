@@ -17,7 +17,7 @@
                     <input type="text" name="qty" value="1">
                     <button type="submit" class="btn btn-light">Toevoegen</button>
 
-                    
+
                   </form>
 
             </div>
