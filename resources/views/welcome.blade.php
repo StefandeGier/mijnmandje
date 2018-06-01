@@ -6,7 +6,7 @@
                 <div class="title m-b-md">
                     <h1>Mijnmandje</h1>
 
-            
+                    Commit via mijn hp
                 </div>
             </div>
         </div>
