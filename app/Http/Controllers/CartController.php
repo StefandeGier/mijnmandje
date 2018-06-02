@@ -39,19 +39,20 @@ class CartController extends Controller
 
         foreach ($shopCart as $item) {
           array_push($cartProducts, Product::find(key($item)));
-          
+          //$cartProducts->append('fourth');
+          //array_push($cartProducts, Product::find(key($item)));
         }
 
         //var_dump($shopCart);
-        //var_dump($cartProducts);
+        var_dump($cartProducts);
         //var_dump($product_id['product_id']);
 
         //echo $qty;
         //return view('tasks/edit',compact('task'));
         return view('/cart')->with('cartProducts', $cartProducts);
+        //exit;
       }
-
-    //  return view('/cart');
+      return view('/cart');
 
     }
 

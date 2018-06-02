@@ -19,15 +19,17 @@
                         <th scope="col">Quantity</th>
                       </tr>
                     </thead>
-                    @foreach ($cartProducts as $cartProduct )
-                      <tbody>
-                        <tr>
-                          <td>{{$cartProduct['name']}}</td>
-                          <td>{{$cartProduct['price']}}</td>
-                          <td></td>
-                        </tr>
-                      </tbody>
+                    @if(isset($cartProducts))
+                      @foreach ($cartProducts as $cartProduct )
+                        <tbody>
+                          <tr>
+                            <td>{{@$cartProduct['name']}}</td>
+                            <td>{{@$cartProduct['price']}}</td>
+                            <td></td>
+                          </tr>
+                        </tbody>
                       @endforeach
+                    @endif
                     </table>
                   </form>
 
