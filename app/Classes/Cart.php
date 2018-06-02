@@ -31,6 +31,10 @@ class Cart
     }
 
 
+    public function showCart($cartProducts, $shopCart)
+    {
+
+    }
 
 
 }
