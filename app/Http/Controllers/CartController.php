@@ -23,7 +23,7 @@ class CartController extends Controller
       $product = $cart->add($product_id, $qty);
 
       Session::push('cart', $product);
-      Session::save();
+      //Session::save();
 
       //dd(Session::get('cart'));
 
@@ -34,36 +34,36 @@ class CartController extends Controller
     public function viewCart(Request $request)
     {
       $products = array();
-
+      $shopCart = Session::get('cart');
       if($request->session()->has('cart')) {
-        $shopCart = Session::get('cart');
-
         foreach ($shopCart as $item) {
-          $product = Product::find(key($item));
-          $products[key($item)] = $product;
+
+
+          $product = Product::find($item['product_id']);
+
+          $totalPrice = $item['qty'] * $product['price'];
+
+          $cartProducts[] = ['id' => $item['product_id'], 'name' => $product['name'] ,'price' => $totalPrice, 'qty' => $item['qty']];
+
         }
-
-
-          //prototype//
-        $cartView = new Cart();
-        $cartItems = $cartView->showCart($products, $shopCart);
         echo "<pre>";
-        //var_dump($products[1]['id']);
-        echo "</pre>";
-
-        echo "<pre>";
-        //var_dump($shopCart[0][1]['qty']);
-        echo "</pre>";
-
-        echo "<pre>";
-        var_dump($cartItems);
-        echo "</pre>";
-
-        //return view('/cart')->with('cartItems', $cartItems);
-        //exit;
+        var_dump($cartProducts);
+        return view('/cart')->with('cartProducts', $cartProducts);
       }
       return view('/cart');
+    }
+
+
+
+
+
+
+    public function deleteItem(Request $request, $product_id)
+    {
+
 
     }
 
-}
+
+
+  }

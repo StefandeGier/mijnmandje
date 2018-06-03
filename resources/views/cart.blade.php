@@ -14,9 +14,10 @@
                     <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
+                        <th scope="col">Product</th>
                         <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Actions</th>
                       </tr>
                     </thead>
                     @if(isset($cartProducts))
@@ -24,15 +25,18 @@
                         <tbody>
                           <tr>
                             <td>{{@$cartProduct['name']}}</td>
+                            <td><input type="number" name="" value="{{@$cartProduct['qty']}}"> <button type="button" class="btn btn-primary">Update</button></td>
                             <td>{{@$cartProduct['price']}}</td>
-                            <td></td>
+
                           </tr>
                         </tbody>
                       @endforeach
+
                     @endif
                     </table>
                   </form>
 
+                  <a href="#" class="btn btn-success">Check out</a>
             </div>
         </div>
     </div>

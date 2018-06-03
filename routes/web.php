@@ -27,6 +27,8 @@ Route::get('/product/{product_id}', 'ProductsController@view');
 
 Route::post('/product/add', 'CartController@addShoppingCart');
 
+Route::get('/cart/delete/{product_id}', 'CartController@deleteItem');
+
 Route::get('/cart', 'CartController@viewCart');
 
 
