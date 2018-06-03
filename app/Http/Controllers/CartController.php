@@ -46,9 +46,9 @@ class CartController extends Controller
           $cartProducts[] = ['id' => $item['product_id'], 'name' => $product['name'] ,'price' => $totalPrice, 'qty' => $item['qty']];
 
         }
-        echo "<pre>";
-        var_dump($cartProducts);
-        return view('/cart')->with('cartProducts', $cartProducts);
+        //echo "<pre>";
+        //var_dump($cartProducts);
+        return view('/cart')->with('cartProducts', @$cartProducts);
       }
       return view('/cart');
     }
@@ -60,8 +60,16 @@ class CartController extends Controller
 
     public function deleteItem(Request $request, $product_id)
     {
+      $shopCart = Session::get('cart');
 
+      foreach ($shopCart as $key => $item) {
+        if ($product_id == $item['product_id']) {
 
+          Session::forget('cart.' .$key);
+
+        }
+      }
+      return redirect('/cart');
     }
 
 

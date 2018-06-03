@@ -6,7 +6,7 @@ use Session;
 class Cart
 {
     //public $items = array();
-
+    // dit gaan we ook voor de update gebruiken!
     public function add($product_id, $qty)
     {
 
@@ -14,17 +14,17 @@ class Cart
       //array_key_exists($product_id, $shopCart[$i]
       if ($shopCart) {
 
-        foreach ($shopCart as $item) {
+        foreach ($shopCart as $key => $item) {
           if ($product_id == $item['product_id']) {
-            for ($i=0; $i < count($item) ; $i++) {
+
 
             $oldProduct = $item['qty'];
             $qty = $oldProduct + $qty;
 
-            Session::forget('cart.' .$i);
+            Session::forget('cart.' .$key);
 
 
-            }
+
           }
         }
       }

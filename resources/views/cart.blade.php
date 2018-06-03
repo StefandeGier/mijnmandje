@@ -8,9 +8,10 @@
 
                 <div class="card-body">
 
-                  <form method="post" action='/product/change'>
+                  <form method="post" action='/cart/update'>
                     @csrf
                     <h1> Shoppingcart</h1>
+                    @if(isset($cartProducts))
                     <table class="table">
                     <thead>
                       <tr>
@@ -20,23 +21,26 @@
                         <th scope="col">Actions</th>
                       </tr>
                     </thead>
-                    @if(isset($cartProducts))
+
                       @foreach ($cartProducts as $cartProduct )
+                        <input hidden type="text" name="" value="{{$cartProduct['id']}}">
                         <tbody>
                           <tr>
                             <td>{{@$cartProduct['name']}}</td>
-                            <td><input type="number" name="" value="{{@$cartProduct['qty']}}"> <button type="button" class="btn btn-primary">Update</button></td>
+                            <td><input type="number" name="" value="{{@$cartProduct['qty']}}"></td>
                             <td>{{@$cartProduct['price']}}</td>
+                            <td><a href="/cart/delete/{{$cartProduct['id']}}" class="btn btn-danger" role="button">Delete</a></td>
 
                           </tr>
                         </tbody>
                       @endforeach
 
-                    @endif
+
                     </table>
                   </form>
 
-                  <a href="#" class="btn btn-success">Check out</a>
+                  <a href="#" class="btn btn-success">Check out</a>  <button type="submit" class="btn btn-primary">Update</button>
+                  @endif
             </div>
         </div>
     </div>
