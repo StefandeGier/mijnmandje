@@ -7,6 +7,11 @@
                 <div class="card-header">Shoppingcart</div>
 
                 <div class="card-body">
+                  @if(Session::has('status_cart_error'))
+                    <div style="background-color:red;">
+                        {{ Session::get('status_cart_error') }}
+                    </div>
+                  @endif
 
                   <form method="post" action='/cart/update'>
                     @csrf
@@ -23,11 +28,11 @@
                     </thead>
 
                       @foreach ($cartProducts as $cartProduct )
-                        <input hidden type="text" name="" value="{{$cartProduct['id']}}">
+                        <input hidden type="text" name="product_id[]" value="{{$cartProduct['id']}}">
                         <tbody>
                           <tr>
                             <td>{{@$cartProduct['name']}}</td>
-                            <td><input type="number" name="" value="{{@$cartProduct['qty']}}"></td>
+                            <td><input type="number" name="qty[]" value="{{@$cartProduct['qty']}}"></td>
                             <td>{{@$cartProduct['price']}}</td>
                             <td><a href="/cart/delete/{{$cartProduct['id']}}" class="btn btn-danger" role="button">Delete</a></td>
 
@@ -37,9 +42,10 @@
 
 
                     </table>
-                  </form>
+
 
                   <a href="#" class="btn btn-success">Check out</a>  <button type="submit" class="btn btn-primary">Update</button>
+                  </form>
                   @endif
             </div>
         </div>

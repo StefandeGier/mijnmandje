@@ -13,31 +13,42 @@ use Session;
 class CartController extends Controller
 {
 
+  public function __construct()
+  {
+
+  }
+
     public function addShoppingCart(Request $request)
     {
 
       $product_id = $request->input('product_id');
       $qty =  $request->input('qty');
 
-      $cart = new Cart();
-      $product = $cart->add($product_id, $qty);
+      if ($qty > 0) {
 
-      Session::push('cart', $product);
-      //Session::save();
+        $cart = new Cart();
+        $product = $cart->add($product_id, $qty);
 
-      //dd(Session::get('cart'));
+        Session::push('cart', $product);
+        //Session::save();
 
-      return view('/welcome');
+        //dd(Session::get('cart'));
+      }else {
+        $request->session()->flash('status_cart_error', 'Cant add product with quantity of zero.');
+      }
+
+      return redirect('/cart');
 
     }
 
     public function viewCart(Request $request)
     {
+        //$this->middleware('auth');
+
       $products = array();
       $shopCart = Session::get('cart');
       if($request->session()->has('cart')) {
         foreach ($shopCart as $item) {
-
 
           $product = Product::find($item['product_id']);
 
@@ -53,11 +64,6 @@ class CartController extends Controller
       return view('/cart');
     }
 
-
-
-
-
-
     public function deleteItem(Request $request, $product_id)
     {
       $shopCart = Session::get('cart');
@@ -72,6 +78,27 @@ class CartController extends Controller
       return redirect('/cart');
     }
 
+    public function updateCart(Request $request)
+    {
+      $product_id = $request->input('product_id');
+      $qty =  $request->input('qty');
+
+      for ($i=0; $i < count($product_id); $i++) {
+
+        if ($qty[$i] == 0) {
+          $this->deleteItem($request, $product_id[$i]);
+        }
+          else {
+            $cart = new Cart();
+
+            $product = $cart->add($product_id[$i], $qty[$i], $update = true);
+
+            Session::push('cart', $product);
+          }
+
+      	}
+        return redirect('/cart');
+      }
 
 
   }
