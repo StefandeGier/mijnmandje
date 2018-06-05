@@ -31,7 +31,9 @@ Route::post('/cart/update', 'CartController@updateCart');
 
 Route::get('/cart/delete/{product_id}', 'CartController@deleteItem');
 
-Route::get('/cart', 'CartController@viewCart')->middleware('y');
+Route::get('/cart', 'CartController@viewCart');
+
+Route::get('/cart/checkout', 'OrdersController@setOrder')->middleware('auth');
 
 
 

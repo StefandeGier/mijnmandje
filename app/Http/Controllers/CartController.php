@@ -41,7 +41,7 @@ class CartController extends Controller
 
     }
 
-    public function viewCart(Request $request)
+    public function viewCart(Request $request, $order = false)
     {
         //$this->middleware('auth');
 
@@ -59,9 +59,13 @@ class CartController extends Controller
         }
         //echo "<pre>";
         //var_dump($cartProducts);
-        return view('/cart')->with('cartProducts', @$cartProducts);
+          if ($order == false) {
+          // code...
+
+          return view('/cart')->with('cartProducts', @$cartProducts);
+          }
       }
-      return view('/cart');
+
     }
 
     public function deleteItem(Request $request, $product_id)

@@ -44,7 +44,7 @@
                     </table>
 
 
-                  <a href="#" class="btn btn-success">Check out</a>  <button type="submit" class="btn btn-primary">Update</button>
+                  <a href="/cart/checkout" class="btn btn-success">Check out</a>  <button type="submit" class="btn btn-primary">Update</button>
                   </form>
                   @endif
             </div>
