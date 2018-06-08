@@ -8,15 +8,15 @@ use App\Product;
 
 use App\Classes\Cart;
 
+use Illuminate\Auth\GenericUser;
+
 use Session;
+
+
 
 class CartController extends Controller
 {
 
-  public function __construct()
-  {
-
-  }
 
     public function addShoppingCart(Request $request)
     {
@@ -24,7 +24,8 @@ class CartController extends Controller
       $product_id = $request->input('product_id');
       $qty =  $request->input('qty');
 
-      if ($qty > 0) {
+
+      if ($qty != 0) {
 
         $cart = new Cart();
         $product = $cart->add($product_id, $qty);
@@ -34,20 +35,19 @@ class CartController extends Controller
 
         //dd(Session::get('cart'));
       }else {
-        $request->session()->flash('status_cart_error', 'Cant add product with quantity of zero.');
+
+        $request->session()->flash('status_cart_error', "Can't add product with quantity of zero.");
       }
 
       return redirect('/cart');
 
     }
 
-    public function viewCart(Request $request, $order = false)
+    public function viewCart($order = false)
     {
-        //$this->middleware('auth');
-
       $products = array();
       $shopCart = Session::get('cart');
-      if($request->session()->has('cart')) {
+      if(Session::has('cart')) {
         foreach ($shopCart as $item) {
 
           $product = Product::find($item['product_id']);
@@ -57,15 +57,15 @@ class CartController extends Controller
           $cartProducts[] = ['id' => $item['product_id'], 'name' => $product['name'] ,'price' => $totalPrice, 'qty' => $item['qty']];
 
         }
-        //echo "<pre>";
-        //var_dump($cartProducts);
+
           if ($order == false) {
-          // code...
 
           return view('/cart')->with('cartProducts', @$cartProducts);
-          }
+        }else {
+          return $cartProducts;
+        }
       }
-
+      return view('cart');
     }
 
     public function deleteItem(Request $request, $product_id)

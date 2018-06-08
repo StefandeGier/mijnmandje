@@ -8,8 +8,9 @@
 
                 <div class="card-body">
                   @if(Session::has('status_cart_error'))
-                    <div style="background-color:red;">
-                        {{ Session::get('status_cart_error') }}
+                    <div class="alert alert-danger alert-dismissible">
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      <strong>Warning!</strong> {{ Session::get('status_cart_error') }}
                     </div>
                   @endif
 

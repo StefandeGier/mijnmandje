@@ -5,7 +5,7 @@ use Session;
 
 class Cart
 {
-  
+
     public function add($product_id, $qty, $update = false)
     {
 

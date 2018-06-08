@@ -13,8 +13,8 @@
                     <li>{{$product->name}}</li>
                     <li>{{$product->description}}</li>
                     <li>&euro; {{$product->price}}</li>
-                    <input type="text" hidden name="product_id" value="{{$product->id}}">
-                    <input type="text" name="qty" value="1">
+                    <input type="number" hidden name="product_id" value="{{$product->id}}">
+                    <input type="number" name="qty" value="1">
                     <button type="submit" class="btn btn-light">Toevoegen</button>
 
 
