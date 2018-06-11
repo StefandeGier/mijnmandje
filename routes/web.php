@@ -35,6 +35,8 @@ Route::get('/cart', 'CartController@viewCart');
 
 Route::get('/cart/checkout', 'OrdersController@setOrder')->middleware('auth');
 
+Route::get('/cart/test', 'OrdersController@showOrder');
+
 
 
 //Route::get('/', 'CategoriesController@index')->name('welcome');
