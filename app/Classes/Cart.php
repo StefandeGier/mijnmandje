@@ -10,7 +10,6 @@ class Cart
     {
 
       $shopCart = Session::get('cart');
-      //array_key_exists($product_id, $shopCart[$i]
       if ($shopCart) {
 
         foreach ($shopCart as $key => $item) {

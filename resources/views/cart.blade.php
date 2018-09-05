@@ -28,6 +28,7 @@
                       </tr>
                     </thead>
 
+
                       @foreach ($cartProducts as $cartProduct )
                         <input hidden type="text" name="product_id[]" value="{{$cartProduct['id']}}">
                         <tbody>
@@ -39,6 +40,7 @@
 
                           </tr>
                         </tbody>
+
                       @endforeach
 
 
