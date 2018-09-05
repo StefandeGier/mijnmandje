@@ -33,7 +33,13 @@ class ProductsController extends Controller
 
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> db040864ba93aa32457672da5adc9ef93159ad16
+=======
+
+=======
+>>>>>>> 161a34825296db4e885e47f203306cd655ca0ad2
+>>>>>>> eca1e9beef7c515b2ecaa461064f4dc3aa3d11ca
 }
