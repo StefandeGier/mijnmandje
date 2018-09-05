@@ -47,6 +47,8 @@ class CartController extends Controller
     {
       $products = array();
       $shopCart = Session::get('cart');
+
+      // put in class
       if(Session::has('cart')) {
         foreach ($shopCart as $item) {
 
@@ -70,6 +72,7 @@ class CartController extends Controller
 
     public function deleteItem(Request $request, $product_id)
     {
+      // put in class
       $shopCart = Session::get('cart');
 
       foreach ($shopCart as $key => $item) {
@@ -86,7 +89,7 @@ class CartController extends Controller
     {
       $product_id = $request->input('product_id');
       $qty =  $request->input('qty');
-
+      //put in class
       for ($i=0; $i < count($product_id); $i++) {
 
         if ($qty[$i] == 0) {
