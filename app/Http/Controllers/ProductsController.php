@@ -29,11 +29,11 @@ class ProductsController extends Controller
     public function view($product_id)
     {
         $product = Product::findOrFail($product_id);
-
-        //echo $product->name;
-
         return view('product',compact('product'));
 
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 161a34825296db4e885e47f203306cd655ca0ad2
 }
