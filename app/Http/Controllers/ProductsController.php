@@ -32,4 +32,8 @@ class ProductsController extends Controller
         return view('product',compact('product'));
 
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> db040864ba93aa32457672da5adc9ef93159ad16
 }
