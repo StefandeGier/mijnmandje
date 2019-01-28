@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Orderline;
 use App\Product;
+use DB;
 use Auth;
 use Session;
+use App\Classes\Cart;
 use Illuminate\Http\Request;
 
 class OrdersController extends CartController
@@ -16,20 +18,8 @@ class OrdersController extends CartController
       $orders = $this->viewCart($order);
 
       //add order
-      $user = Auth::user()->id;
-
-      //insert orderInfo to database
-      $data = Order::create(['user_id'=> $user]);
-
-      //dd($data);
-
-      foreach ($orders as $order) {
-
-        // add orderline
-        $orderLine = ['order_id' =>  $data['id'], 'product_id' => $order['id'],'price' => $order['price'], 'qty' =>  $order['qty'] ];
-        Orderline::create($orderLine);
-      }
-      Session::forget('cart');
+      $cart = new Cart();
+      $addOrder = $cart->addOrder($orders);
 
       return view ('/orders');
 
@@ -37,10 +27,10 @@ class OrdersController extends CartController
 
     public function showOrder()
     {
-      $test = DB::table('order')
+      $order = DB::table('orders')
             ->join('order_line', 'order.id', '=', 'order_line.order_id')
             //->select('users.*', 'contacts.phone', 'orders.price')
             ->get();
-      return $test->orders;
+      return $order->orders;
     }
 }
