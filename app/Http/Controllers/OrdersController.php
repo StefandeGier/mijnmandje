@@ -24,13 +24,5 @@ class OrdersController extends CartController
       return view ('/orders');
 
     }
-
-    public function showOrder()
-    {
-      $order = DB::table('orders')
-            ->join('order_line', 'order.id', '=', 'order_line.order_id')
-            //->select('users.*', 'contacts.phone', 'orders.price')
-            ->get();
-      return $order->orders;
-    }
+    
 }
